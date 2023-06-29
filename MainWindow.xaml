@@ -1,0 +1,62 @@
+﻿<Window x:Class="kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:kalkulator"
+        Title="Kalkulator" Height="500" Width="600">
+    <Window.DataContext>
+        <local:Kalkulator />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Dzialanie, Mode=OneWay}" FontSize="20" HorizontalAlignment="Right" Margin="5"/>
+        <TextBox Grid.Row="1" Text="{Binding Dzialanie, Mode=OneWay}" IsReadOnly="True" FontSize="30" Width="300" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="1" Text="{Binding Wynik, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" FontSize="30" Width="300"  HorizontalAlignment="Right"/>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Content="1" Command="{Binding WprowadzCyfreCommand}" CommandParameter="1" Margin="2"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="2" Command="{Binding WprowadzCyfreCommand}" CommandParameter="2" Margin="2"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="3" Command="{Binding WprowadzCyfreCommand}" CommandParameter="3" Margin="2"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="+" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="+" Margin="2"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Content="4" Command="{Binding WprowadzCyfreCommand}" CommandParameter="4" Margin="2"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="5" Command="{Binding WprowadzCyfreCommand}" CommandParameter="5" Margin="2"/>
+            <Button Grid.Row="1" Grid.Column="2" Content="6" Command="{Binding WprowadzCyfreCommand}" CommandParameter="6" Margin="2"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="-" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="-" Margin="2"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Content="7" Command="{Binding WprowadzCyfreCommand}" CommandParameter="7" Margin="2"/>
+            <Button Grid.Row="2" Grid.Column="1" Content="8" Command="{Binding WprowadzCyfreCommand}" CommandParameter="8" Margin="2"/>
+            <Button Grid.Row="2" Grid.Column="2" Content="9" Command="{Binding WprowadzCyfreCommand}" CommandParameter="9" Margin="2"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="*" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="*" Margin="2"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Content="0" Command="{Binding WprowadzCyfreCommand}" CommandParameter="0" Margin="2"/>
+            <Button Grid.Row="3" Grid.Column="1" Content="," Command="{Binding WprowadzPrzecinekCommand}" CommandParameter="." Margin="2"/>
+            <Button Grid.Row="3" Grid.Column="2" Content="=" Command="{Binding WykonajDzialanieCommand}" Margin="2"/>
+            <Button Grid.Row="3" Grid.Column="3" Content="/" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="/" Margin="2"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Content="sqrt" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="sqrt" Margin="2"/>
+            <Button Grid.Row="4" Grid.Column="1" Content="pow" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="pow" Margin="2"/>
+            <Button Grid.Row="4" Grid.Column="2" Content="clr" Command="{Binding CzyscWszystkoCommand}" Margin="2"/>
+            <Button Grid.Row="4" Grid.Column="3" Content="%" Command="{Binding WprowadzOperacjaCommand}" CommandParameter="%" Margin="2"/>
+        </Grid>
+    </Grid>
+</Window>
